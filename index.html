@@ -1,70 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrepreneurship Club</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-        
+       <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       body {
-            font-family: 'Montserrat', sans-serif;
+    <title>Entrepreneurship Club</title>
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            height: 100vh;
-            background: #f8f9fa;
-            color: #333;
+            box-sizing: border-box;
         }
+.collaborators {
+    width: 100%;  /* Full width */
+    text-align: center;
+    padding: 20px;
+}
 
+.logo-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+        /* Container */
         .container {
             display: flex;
             width: 100%;
+            min-height: 100vh;
         }
 
         /* Left Column - Logo Section */
         .left-column {
-            width: 40%;
+            width: 100%;
             background: linear-gradient(to right, #1c2b38, #2980b9);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             padding: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-family: 100px;
+            text-align: center;
         }
 
         .club-logo {
-            max-width: 50%;
-            height: 200px;
+            width: 150px; /* Set fixed width */
+            height: 150px; /* Set fixed height */
+            object-fit: cover; /* Ensures it maintains shape */
+            border-radius: 50%;
+            border: 3px solid white;
             transition: transform 0.3s ease-in-out;
         }
 
         .club-logo:hover {
             transform: scale(1.1);
         }
+/* Carousel Styling */
+.carousel {
+    width: 100%;
+    max-width: 800px; /* Adjust width as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%;
+    max-height: 400px; /* Limits image height */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 10px; /* Optional: Rounded corners */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Active image styling */
+.carousel img:not(.active) {
+    display: none;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .carousel img {
+        max-height: 250px; /* Smaller height on mobile */
+    }
+}
+
+        .club-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin-top: 15px;
+        }
 
         /* Right Column - Content */
         .right-column {
-            width: 60%;
+            width: 100%;
             padding: 50px;
             background: #ffffff;
-            overflow-y: auto;
             text-align: center;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            
-        }
-
-        .top-logo img {
-            max-width: 90px;
-            margin-bottom: 15px;
         }
 
         h1 {
-            font-size: 10rem;
+            font-size: 2.5rem;
             color: #1c2b38;
             font-weight: 600;
             margin-bottom: 10px;
@@ -73,8 +124,7 @@
         .tagline {
             font-size: 1.2rem;
             color: #555;
-            font-weight: 400;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             max-width: 600px;
         }
 
@@ -82,12 +132,12 @@
         section {
             width: 100%;
             max-width: 750px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             background: #fff;
             text-align: left;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
@@ -104,70 +154,22 @@
             font-size: 1.5rem;
         }
 
-        /* Impact Section */
-        .impact p {
-            font-size: 1.1rem;
-            margin: 8px 0;
-            font-weight: 500;
-        }
-
-        /* Carousel */
-        .carousel {
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            border-radius: 10px;
-        }
-
-        .carousel img {
-            width: 100%;
-            max-height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            display: none;
-        }
-
-        .carousel img:first-child {
-            display: block;
-        }
-
-        /* Logo Scrolling */
-        .logo-slider {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 15px 0;
-        }
-
-        .logo-slider img {
-            max-width: 110px;
-            height: auto;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .logo-slider img:hover {
-            transform: scale(1.1);
-        }
-
         /* Team Section */
         .team-grid {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .team-member {
             text-align: center;
-            background: #f9f9f9;
             padding: 20px;
             border-radius: 10px;
+            background: #f9f9f9;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
-            max-width: 180px;
         }
 
         .team-member:hover {
@@ -175,141 +177,72 @@
         }
 
         .team-member img {
-            width: 90px;
-            height: 90px;
+            width: 120px; /* Fix image size */
+            height: 120px; /* Keep square */
             border-radius: 50%;
-            margin-bottom: 10px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-
-        .container {
-            display: flex;
-            width: 100%;
+        /* Responsive Styles */
+        @media (max-width: 1000px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .left-column, .right-column {
+                width: 100%;
+                padding: 20px;
+            }
+            .club-logo {
+                width: 130px;
+                height: 130px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
         }
 
-        /* Left Column - Logo Section */
-        .left-column {
-            width: 50%;
-            background: linear-gradient(to right, #1c2b38, #2980b9);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 20px;
-            position: relative;
-
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .club-logo {
+                width: 100px;
+                height: 100px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
         }
 
-        .club-logo {
-            max-width: 80px;
-            
-            height: auto;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        /* Right Column - Content */
-        .right-column {
-            width: 50%;
-            padding: 50px;
-            background: #ffffff;
-            overflow-y: auto;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #1c2b38;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .event-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background: #2980b9;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .event-button:hover {
-            background: #1c2b38;
-        }
-.left-column {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Adds space between the logo and text */
-    background: linear-gradient(to right, #1e3c72, #2a5298); /* Stylish gradient */
-    padding: 100px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
-
+.logo-slider img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Add a nice hover effect */
 }
-
-.club-logo {
-    width: 5000px; /* Adjust size */
-    height:auto;
-    border-radius: 50%; /* Circular logo */
-    border: 3px solid white; /* Adds a border */
-    top: 20px;   /* Moves logo down */
-    left: 20px;  /* Moves logo slightly right */
-    max-width: 200px;
-    
-    
-}
-@media (max-width: 1000px) {
-    .club-logo {
-        width: 120px;
-        height: 120px;
+@media (max-width: 600px) {
+    .logo-slider img {
+        width: 80%;  /* Scale images for mobile screens */
     }
 }
 
-@media (max-width: 1000px) {
-    .club-logo {
-        width: 120px;
-        height: 120px;
+/* Media query for tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .logo-slider img {
+        width: 60%;  /* Adjust the size for tablets */
     }
 }
 
-
-.club-name {
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: white;
-    font-family: 'Poppins', sans-serif; /* Modern font */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+/* Media query for larger screens (1025px and above, typically laptops and desktops) */
+@media (min-width: 1025px) {
+    .logo-slider img {
+        width: 200px;  /* Set a fixed size for larger screens */
+    }
 }
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.team-member {
-    text-align: center;
-    max-width: 180px; /* Adjust for better spacing */
-}
-
-.team-member img {
-    width: 150px; /* Increase size for better clarity */
-    height: 150px;
-    border-radius: 50%; /* Circular images */
-    object-fit: cover; /* Ensures image maintains aspect ratio */
-    border: 3px solid white; /* Gives a professional border */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -319,7 +252,7 @@
         <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739247951/Snapinst.app_475174310_17850852699390339_1437698077645631765_n_1080_mjwwak.jpg" alt="Club Logo" class="club-logo">
         <div class="a">
             <a href="https://www.linkedin.com/company/engineering-entrepreneurship-club-at-fau/" target="_blank">
-                <span class="club-name">Engineering <br/>Entrepreneurship <br/>Club</span>
+                <span class="club-name">Engineering Entrepreneurship Club</span>
             </a>
         </div>
     </div>
@@ -353,7 +286,7 @@
                     <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739247832/Snapinst.app_475891596_17851661496390339_9050164206480331609_n_1080_adorza.jpg" alt="Club Event" class="active">
                     <img src="https://res.cloudinary.com/dh9gs449u/image/upload/v1739203664/c2_pukhm6.jpg" alt="Brainstorming Session">
                     <img src="https://res.cloudinary.com/dh9gs449u/image/upload/v1739203663/c3_whtjkc.jpg" alt="Club Event" class="active">
-                    <img src="https://res.cloudinary.com/dh9gs449u/image/upload/v1739203663/c4_etztr4.jpg" alt="Brainstorming Session">
+            
                 </div>
             </section>
 
@@ -369,13 +302,13 @@
                 <div class="team-grid">
                     <div class="team-member">
                     <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739246651/image_1_l1g5h5.png" alt="Advisor">
-                    <li className="a" ><a href="https://www.linkedin.com/in/harikalva/">Dr.Hari Kalva, Chair, Department of Electrical Engineering and Computer Science</a></li>
+                    <li className="a" ><a href="https://www.linkedin.com/in/harikalva/">Dr.Hari Kalva Chairperson and Department of Electrical Engineering and Computer Science</a></li>
                     
                     </div>
                 
 <div class="team-member">
                         <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739246669/image_2_g2nbos.png" alt="Advisor">
-                        <li className="a" ><a href="https://www.linkedin.com/in/fkoch/">Dr. Fernando Koch, Research Professor, Department of Electrical Engineering and Computer Science</a></li>
+                        <li className="a" ><a href="https://www.linkedin.com/in/fkoch/">Fernando Koch Ph.D Research Professor, Department of Electrical Engineering and Computer Science</a></li>
                        
 </div>
 </div>
