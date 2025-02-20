@@ -292,9 +292,10 @@ body {
             
             <section class="impact">
                 <section class="section-image">
-                       <h2>Startup Guide</h2>
-                       <button id="toggleGuide">Show Startup Guide</button>
-                       <img src="Stratup Map.jpeg" alt="Startup Guide">
+                       <h2 id="toggleGuide">Startup Guide</h2>
+                       <div id="startupGuide" style="display: none;">
+                              <img src="Stratup Map.jpeg" alt="Startup Guide">
+                       </div>
                 </section>
                 <h2>Our Impact</h2>
                 <p>✅ <strong>30+</strong> Members</p>
@@ -411,16 +412,18 @@ body {
         setInterval(showNextImage, 3000); // Change image every 3 seconds
     </script>
 <script>
-       document.getElementById("toggleGuide").addEventListener("click", function () {
-              const guideSection = document.getElementById("startupGuide");
-              if (guideSection.style.display === "none") {
-                     guideSection.style.display = "block";
-                     this.textContent = "Hide Startup Guide";
-              } else {
-                     guideSection.style.display = "none";
-                     this.textContent = "Show Startup Guide";
-              }
-       });
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleHeading = document.getElementById("toggleGuide");
+        const guideSection = document.getElementById("startupGuide");
+
+        toggleHeading.addEventListener("click", function () {
+            if (guideSection.style.display === "none" || guideSection.style.display === "") {
+                guideSection.style.display = "block";
+            } else {
+                guideSection.style.display = "none";
+            }
+        });
+    });
 </script>
 </body>
 </html>
