@@ -4,8 +4,10 @@
        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Entrepreneurship Club</title>
-       <a href="https://forms.office.com/r/chtiAu6uKA" target="_blank" class="apply-button">Apply</a>
+    <div class="title-container">
+           <span class="title">Engineering Entrepreneurship Club</span>
+           <a href="YOUR_MICROSOFT_FORM_LINK" target="_blank" class="apply-button">Apply</a>
+    </div>
    <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -34,19 +36,26 @@ body {
     font-family: Arial, sans-serif;
 }
 
-          .apply-button {
-                 display: inline-block;
-                 margin-left: 15px; /* Adjust spacing */
-                 padding: 8px 15px;
-                 background-color: #0078D4; /* Microsoft blue color */
-                 color: white;
-                 text-decoration: none;
-                 border-radius: 5px;
-                 font-weight: bold;
-                 transition: 0.3s;
+          .title-container {
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between; 
+                 background-color: inherit; 
           }
+          
+          .apply-button {
+                 text-decoration: none;
+                 background-color: inherit; 
+                 color: white; 
+                 padding: 5px 15px;
+                 border: 1px solid white;
+                 border-radius: 5px;
+                 cursor: pointer;
+                 font-size: inherit;
+          
           .apply-button:hover {
-                 background-color: #005A9E;
+                 background-color: rgba(255, 255, 255, 0.2); 
+          }
           }
         /* Container */
         .container {
