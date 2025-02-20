@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-           <title>Engineering Entrepreneurship Club</title> <a href="https://forms.office.com/r/chtiAu6uKA" target="_blank" class="apply-button">Apply</a>
+
     
    <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -57,21 +57,29 @@ body {
             flex-direction: column;
             padding: 30px;
             text-align: center;
-        
-          .apply-button {
-                 text-decoration: none;
-                 background-color: blue; 
-                 color: white; 
-                 padding: 5px 15px;
-                 border: 1px solid white;
-                 border-radius: 5px;
-                 cursor: pointer;
-                 font-size: inherit;
-          }
+              gap: 15px; 
+}
+        .club-header {
+    display: flex;
+    align-items: center; /* Align text and button in the same row */
+    gap: 10px; /* Space between text and button */
+}
+
+.apply-button {
+    text-decoration: none;
+    background-color: white;
+    color: blue;
+    padding: 5px 15px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
           
-          .apply-button:hover {
-                 background-color: rgba(255, 255, 255, 0.2); 
-          }
+       .apply-button:hover {
+    background-color: blue;
+    color: white;
+}
         }
         .club-logo {
             width: 150px; /* Set fixed width */
@@ -299,14 +307,17 @@ body {
 
 </head>
 <body>
-    <div class="left-column"> 
-        <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739247951/Snapinst.app_475174310_17850852699390339_1437698077645631765_n_1080_mjwwak.jpg" alt="Club Logo" class="club-logo">
-        <div class="a">
-            <a href="https://www.linkedin.com/company/engineering-entrepreneurship-club-at-fau/" target="_blank">
-                <span class="club-name">Engineering Entrepreneurship Club</span>
-            </a>
-        </div>
+  <div class="left-column">
+    <img src="https://res.cloudinary.com/dquzbvmbe/image/upload/v1739247951/Snapinst.app_475174310_17850852699390339_1437698077645631765_n_1080_mjwwak.jpg" 
+         alt="Club Logo" class="club-logo">
+    <div class="club-header">
+        <a href="https://www.linkedin.com/company/engineering-entrepreneurship-club-at-fau/" target="_blank">
+            <span class="club-name">Engineering Entrepreneurship Club</span>
+        </a>
+        <a href="https://forms.office.com/r/chtiAu6uKA" target="_blank" class="apply-button">Apply</a>
     </div>
+</div>
+
     
 
         <!-- Right Column -->
