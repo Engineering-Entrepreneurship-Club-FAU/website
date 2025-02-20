@@ -140,6 +140,21 @@ body {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
+          .startupGuide {
+                 text-align: center; 
+                 margin-top: 10px; 
+          }
+          .startupGuide img {
+                 width: 80%; 
+                 max-width: 600px; 
+                 height: auto; 
+                 border-radius: 10px; 
+                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+                 transition: transform 0.3s ease-in-out; 
+          }
+          .startupGuide img:hover {
+                 transform: scale(1.05); 
+          }
           
           .section-image {
                  text-align: center;  
@@ -293,7 +308,9 @@ body {
             <section class="impact">
                 <section class="section-image">
                        <h2 id="toggleGuide">Startup Guide</h2>
-                       <img src="Stratup Map.jpeg" alt="Startup Guide">
+                       <div id="startupGuide" style="display: none;">
+                              <img src="Stratup Map.jpeg" alt="Startup Guide">
+                     </div>
                 </section>
                 <h2>Our Impact</h2>
                 <p>✅ <strong>30+</strong> Members</p>
