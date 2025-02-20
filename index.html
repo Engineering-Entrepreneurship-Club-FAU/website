@@ -293,6 +293,7 @@ body {
             <section class="impact">
                 <section class="section-image">
                        <h2>Startup Guide</h2>
+                       <button id="toggleGuide">Show Startup Guide</button>
                        <img src="Stratup Map.jpeg" alt="Startup Guide">
                 </section>
                 <h2>Our Impact</h2>
@@ -409,5 +410,17 @@ body {
 
         setInterval(showNextImage, 3000); // Change image every 3 seconds
     </script>
+<script>
+       document.getElementById("toggleGuide").addEventListener("click", function () {
+              const guideSection = document.getElementById("startupGuide");
+              if (guideSection.style.display === "none") {
+                     guideSection.style.display = "block";
+                     this.textContent = "Hide Startup Guide";
+              } else {
+                     guideSection.style.display = "none";
+                     this.textContent = "Show Startup Guide";
+              }
+       });
+</script>
 </body>
 </html>
