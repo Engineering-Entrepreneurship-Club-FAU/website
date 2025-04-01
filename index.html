@@ -206,43 +206,35 @@ h2 {
 
 /* === Team Section === */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    gap: 20px;
 }
 
-.team-member {
+.team-member, .team-1, .team-2, .team-3 {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
     background: #f9f9f9;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    width: 220px; /* Ensuring a fixed width */
+    height: auto; /* Allow auto height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.team-member:hover {
-    transform: scale(1.05);
+.team-member img, .team-1 img, .team-2 img, .team-3 img {
+    max-width: 180px; /* Ensuring proper fit */
+    max-height: 100px; /* Set a reasonable height */
+    object-fit: contain; /* Ensuring full image fits within the box */
+    border: none; /* Removing border to ensure visibility */
+    background-color: white; /* Adding contrast */
+    padding: 10px; /* Adding spacing around the image */
 }
 
-.team-member img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-} 
-
-.team-1 img {
-    width: 1000px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
        
 
 /* === Image Sections === */
